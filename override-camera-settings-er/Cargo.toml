@@ -1,0 +1,13 @@
+[package]
+name = "override-camera-settings-er"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+eldenring = { path = "../fromsoftware-rs/crates/eldenring" }
+fromsoftware-shared = { path = "../fromsoftware-rs/crates/shared" }
+serde = {version = "1.0.228", features = ["derive"] }
+toml = "0.9.11"

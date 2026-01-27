@@ -1,0 +1,6 @@
+field_of_view = 90.0
+distance_multiplier = 1.0
+render_distance_start = 0.05
+render_distance_end = 100.0
+aspect_width = 16.0
+aspect_height = 10.0
