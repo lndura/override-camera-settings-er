@@ -71,24 +71,14 @@ fn adjust_camera_task() {
         return;
     };
 
-    let mut config_reloaded = true;
-
     // This code will run every frame, after the CameraStep task.
     cs_task.run_recurring(
         move |_pre_render_task: &FD4TaskData| {
             let Ok(cam) =
                 (unsafe { CSCamera::instance() }).map(|camera| camera.pers_cam_1.as_mut())
             else {
-                if !config_reloaded {
-                    config_reloaded = true;
-                    if let Some(new_config) = read_camera_config() {
-                        camera_config = new_config;
-                    }
-                }
                 return;
             };
-
-            config_reloaded = false;
 
             let forward = cam.forward();
             let position = &mut cam.matrix.3;
